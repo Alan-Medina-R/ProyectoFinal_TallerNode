@@ -3,7 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const app = express();
 //Routes
-const pokemon = require('./routes/pokemon');
+const empleados = require('./routes/empleados');
 const user = require('./routes/user');
 //Middleware
 const auth = require('./middleware/auth');
@@ -16,19 +16,11 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/* 
-Verbos HTTP
-GET - Obtener recursos
-POST - Almacenar/crear recursos
-PATCH - Modificar una parte de un recurso
-PUT - Modificar un recurso
-DELETE - Borrar un recurso
-*/
-
+app.use(express.static('Recursos_Humanos'));
 app.get("/", index);
 app.use("/user", user);
 app.use(auth);
-app.use("/pokemon", pokemon);
+app.use("/empleados", empleados);
 app.use(notFound);
 
 app.listen(process.env.PORT || 3000, () => {
