@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('Recursos_Humanos'));
 app.get("/", index);
 app.use("/user", user);
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 app.use(auth);
 app.use("/empleados", empleados);
 app.use(notFound);

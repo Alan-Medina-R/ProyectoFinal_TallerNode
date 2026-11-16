@@ -18,6 +18,7 @@ function init(){
             document.getElementById("input-search").value = "";
             loadEmpleados();
         });
+        document.getElementById("btn-logout").addEventListener("click", logout);
     }
     else{
         window.location.href="index.html";
